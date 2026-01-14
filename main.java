@@ -27,6 +27,13 @@ public class Main {
  
  
         // TODO: Declare your variables here
+        String weatherConditions;
+        String precipitation;
+        String windSpeed;
+        double highTemp;
+        double lowTemp;
+        int uvIndex;
+        
  
  
         /*
