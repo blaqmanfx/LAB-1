@@ -27,13 +27,12 @@ public class Main {
  
  
         // TODO: Declare your variables here
-        String weatherConditions;
-        String precipitation;
-        String windSpeed;
-        double highTemp;
-        double lowTemp;
-        int uvIndex;
-        
+        String WeatherConditions;
+        String Precipitation;
+        String WindSpeed;
+        double HighTemp;
+        double LowTemp;
+        int UVIndex;
  
  
         /*
@@ -45,6 +44,23 @@ public class Main {
  
  
         // TODO: Prompt user and read input
+
+        System.out.print("Enter today's weather conditions (e.g., Sunny, Rainy): ");
+        WeatherConditions = input.nextLine();
+
+        System.out.print("Enter possibility of precipitation (e.g., 20%): ");
+        Precipitation = input.nextLine();
+
+        System.out.print("Enter wind speed (e.g., 15 km/h, Light, Strong): ");
+        WindSpeed = input.nextLine();
+
+        System.out.print("Enter daily high temperature (°C): ");
+        HighTemp = input.nextDouble();
+
+        System.out.print("Enter daily low temperature (°C): ");
+        LowTemp = input.nextDouble();
+
+    
         // TODO: Use loops to validate high/low temperatures and UV index
  
  
