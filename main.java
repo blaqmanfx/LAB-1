@@ -223,18 +223,30 @@ public class Main {
  
         // TODO: Implement loop for multiple reports
         
-        System.out.print("Would you like to enter another day's report? (yes/no): ");
-        String continueReport = input.nextLine();
-        if (continueReport.equalsIgnoreCase("yes")) {
-            main(null); // Restart the program
+       String continueReport;
+
+       do {
+            System.out.print("\nWould you like to enter another day's report? (yes/no): ");
+            continueReport = input.nextLine().trim().toLowerCase();
+    
+        if (continueReport.equals("yes")) {
+        
+            System.out.println("  RESTARTING WEATHER REPORT...");
+        
+            main(args); // Restart the program
+            return; // Exit current instance after restart
+        }else if (continueReport.equals("no")) {
+            System.out.println("\nThank you for using the Weather Report Program!");
+            break; // Exit the loop
         } else {
-            System.out.println("Thank you for using the Weather Report Program!");
-        }
+            System.out.println("Invalid input! Please enter 'yes' or 'no'.");
+        // Loop continues for invalid input
+    }
+    
+} while (true); // Keep looping until valid 'yes' or 'no'
 
+    input.close();
 
- 
- 
-        input.close();
     }
 }
  
