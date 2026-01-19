@@ -182,7 +182,7 @@ public class Main {
             tempTips = "Freezing temperatures! Bundle up!";
         }
 
-        
+
  
  
         /*
@@ -193,7 +193,16 @@ public class Main {
  
  
         // TODO: Construct your full weather report here
- 
+         
+        String fullReport = "Today's Weather Report:\n" +
+                            "Conditions: " + WeatherConditions + "\n" +
+                            "Precipitation: " + Precipitation + "\n" +
+                            "Wind Speed: " + WindSpeed + "\n" +
+                            "High Temperature: " + HighTempInt + "°C\n" +
+                            "Low Temperature: " + LowTempInt + "°C\n" +
+                            "UV Index: " + UVIndex + "\n\n" +
+                            "Weather Tips:\n" + uvTips + "\n" + precipTips + "\n" +
+                                windTips + "\n" + tempTips + "\n";
  
         /*
         STEP 6: Print the full weather report
