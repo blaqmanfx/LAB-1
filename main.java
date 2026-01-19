@@ -109,6 +109,80 @@ public class Main {
  
  
         // TODO: Write if, if-else, or nested if statements to display tips
+        String uvTips = "";
+        String precipTips = "";
+        String windTips = "";
+        String tempTips = "";
+
+        System.out.println("      WEATHER ANALYSIS");
+
+        // UV Index tips
+        if (UVIndex >= 8) {
+            uvTips = "UV Index is very high! Use sunscreen and wear protective clothing.";
+        } else if (UVIndex >= 6) {
+            uvTips = "UV Index is high. Use sunscreen when outdoors.";
+        } else if (UVIndex >= 3) {
+            uvTips = "UV Index is moderate. Some protection recommended.";
+        } else {
+            uvTips = "UV Index is low. Minimal sun protection needed.";
+        }
+
+        // Precipitation tips
+        if (Precipitation.contains("%")) {
+            String precipValueStr = Precipitation.replace("%", "").trim();
+            try {
+                int precipPercent = Integer.parseInt(precipValueStr);
+                if (precipPercent >= 70) {
+                    precipTips = "High chance of rain! Definitely carry an umbrella.";
+                } else if (precipPercent >= 50) {
+                    precipTips = "Moderate chance of rain. Bring an umbrella to be safe.";
+                } else if (precipPercent >= 30) {
+                    precipTips = "Low chance of rain. Umbrella optional.";
+                } else {
+                    precipTips = "Very low chance of rain. No umbrella needed.";
+                }
+            } catch (NumberFormatException e) {
+                precipTips = "Precipitation: " + Precipitation;
+            }
+        } else {
+            precipTips = "Precipitation forecast: " + Precipitation;
+        }
+
+        // Wind speed tips
+         if (WindSpeed.contains("km/h")) {
+            String speedStr = WindSpeed.replace("km/h", "").trim();
+            try {
+                int speed = Integer.parseInt(speedStr);
+                if (speed > 40) {
+                    windTips = "Very windy conditions! Secure loose objects.";
+                } else if (speed > 25) {
+                    windTips = "Windy conditions. Hold onto your hat!";
+                } else if (speed > 10) {
+                    windTips = "Light breeze. Pleasant conditions.";
+                } else {
+                    windTips = "Calm winds. Perfect weather.";
+                }
+            } catch (NumberFormatException e) {
+                windTips = "Wind: " + WindSpeed;
+            }
+        } else {
+            windTips = "Wind: " + WindSpeed;
+        }
+
+        // Temperature tips
+        if (avgTemp >= 30) {
+            tempTips = "It's quite hot today. Stay hydrated!";
+        } else if (avgTemp >= 20) {
+            tempTips = "Warm weather. Enjoy your day!";
+        } else if (avgTemp >= 10) {
+            tempTips = "Cool weather. A light jacket is recommended.";
+        } else if (avgTemp >= 0) {
+            tempTips = "Cold weather. Dress warmly!";
+        } else {
+            tempTips = "Freezing temperatures! Bundle up!";
+        }
+
+        
  
  
         /*
