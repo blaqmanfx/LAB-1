@@ -222,6 +222,16 @@ public class Main {
  
  
         // TODO: Implement loop for multiple reports
+        
+        System.out.print("Would you like to enter another day's report? (yes/no): ");
+        String continueReport = input.nextLine();
+        if (continueReport.equalsIgnoreCase("yes")) {
+            main(null); // Restart the program
+        } else {
+            System.out.println("Thank you for using the Weather Report Program!");
+        }
+
+
  
  
         input.close();
