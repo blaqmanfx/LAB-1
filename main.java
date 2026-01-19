@@ -81,7 +81,7 @@ public class Main {
             UVIndex = input.nextInt();
         }
 
-        
+
  
  
         /*
@@ -91,6 +91,12 @@ public class Main {
  
  
         // TODO: Apply typecasting where necessary
+
+        int HighTempInt = (int) HighTemp;
+        int LowTempInt = (int) LowTemp;
+
+        // Calculate average temperature
+        double avgTemp = (HighTemp + LowTemp) / 2.0;
  
  
         /*
