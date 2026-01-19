@@ -27,12 +27,12 @@ public class Main {
  
  
         // TODO: Declare your variables here
-        String WeatherConditions;
-        String Precipitation;
-        String WindSpeed;
-        double HighTemp;
-        double LowTemp;
-        int UVIndex;
+        String weatherConditions;
+        String precipitation;
+        String windSpeed;
+        double highTemp;
+        double lowTemp;
+        int uvIndex;
  
  
         /*
@@ -45,40 +45,40 @@ public class Main {
  
         // TODO: Prompt user and read input
 
-        System.out.print("Enter today's weather conditions (e.g., Sunny, Rainy): ");
-        WeatherConditions = input.nextLine();
+        System.out.print("Enter today's weather conditions (e.g., Snowy, Sunny, Rainy): ");
+        weatherConditions = input.nextLine();
 
         System.out.print("Enter possibility of precipitation (e.g., 20%): ");
-        Precipitation = input.nextLine();
+        precipitation = input.nextLine();
 
         System.out.print("Enter wind speed (e.g., 15 km/h, Light, Strong): ");
-        WindSpeed = input.nextLine();
+        windSpeed = input.nextLine();
 
         System.out.print("Enter daily high temperature (°C): ");
-        HighTemp = input.nextDouble();
+        highTemp = input.nextDouble();
 
         System.out.print("Enter daily low temperature (°C): ");
-        LowTemp = input.nextDouble();
+        lowTemp = input.nextDouble();
 
     
         // TODO: Use loops to validate high/low temperatures and UV index
 
-        while (HighTemp < LowTemp) {
+        while (highTemp < lowTemp) {
             System.out.println("Error: High temperature must be greater than or equal to low temperature.");
             System.out.print("Please re-enter daily high temperature (°C): ");
-            HighTemp = input.nextDouble();
+            highTemp = input.nextDouble();
             System.out.print("Please re-enter daily low temperature (°C): ");
-            LowTemp = input.nextDouble();
+            lowTemp = input.nextDouble();
         }
 
         System.out.print("Enter UV index (0-11+): ");
-        UVIndex = input.nextInt();
+        uvIndex = input.nextInt();
 
         // Validate UV index is between 0 and 11+
-        while (UVIndex < 0 || UVIndex > 11) {
+        while (uvIndex < 0 || uvIndex > 11) {
             System.out.println("Error: UV index must be between 0 and 11+.");
             System.out.print("Please re-enter UV index (0-11+): ");
-            UVIndex = input.nextInt();
+            uvIndex = input.nextInt();
         }
 
 
@@ -92,11 +92,11 @@ public class Main {
  
         // TODO: Apply typecasting where necessary
 
-        int HighTempInt = (int) HighTemp;
-        int LowTempInt = (int) LowTemp;
+        int highTempInt = (int) highTemp;
+        int lowTempInt = (int) lowTemp;
 
         // Calculate average temperature
-        double avgTemp = (HighTemp + LowTemp) / 2.0;
+        double avgTemp = (highTemp + lowTemp) / 2.0;
  
  
         /*
@@ -117,19 +117,19 @@ public class Main {
         System.out.println("      WEATHER ANALYSIS");
 
         // UV Index tips
-        if (UVIndex >= 8) {
+        if (uvIndex >= 8) {
             uvTips = "UV Index is very high! Use sunscreen and wear protective clothing.";
-        } else if (UVIndex >= 6) {
+        } else if (uvIndex >= 6) {
             uvTips = "UV Index is high. Use sunscreen when outdoors.";
-        } else if (UVIndex >= 3) {
+        } else if (uvIndex >= 3) {
             uvTips = "UV Index is moderate. Some protection recommended.";
         } else {
             uvTips = "UV Index is low. Minimal sun protection needed.";
         }
 
         // Precipitation tips
-        if (Precipitation.contains("%")) {
-            String precipValueStr = Precipitation.replace("%", "").trim();
+        if (precipitation.contains("%")) {
+            String precipValueStr = precipitation.replace("%", "").trim();
             try {
                 int precipPercent = Integer.parseInt(precipValueStr);
                 if (precipPercent >= 70) {
@@ -142,15 +142,15 @@ public class Main {
                     precipTips = "Very low chance of rain. No umbrella needed.";
                 }
             } catch (NumberFormatException e) {
-                precipTips = "Precipitation: " + Precipitation;
+                precipTips = "Precipitation: " + precipitation;
             }
         } else {
-            precipTips = "Precipitation forecast: " + Precipitation;
+            precipTips = "Precipitation forecast: " + precipitation;
         }
 
         // Wind speed tips
-         if (WindSpeed.contains("km/h")) {
-            String speedStr = WindSpeed.replace("km/h", "").trim();
+         if (windSpeed.contains("km/h")) {
+            String speedStr = windSpeed.replace("km/h", "").trim();
             try {
                 int speed = Integer.parseInt(speedStr);
                 if (speed > 40) {
@@ -163,10 +163,10 @@ public class Main {
                     windTips = "Calm winds. Perfect weather.";
                 }
             } catch (NumberFormatException e) {
-                windTips = "Wind: " + WindSpeed;
+                windTips = "Wind: " + windSpeed;
             }
         } else {
-            windTips = "Wind: " + WindSpeed;
+            windTips = "Wind: " + windSpeed;
         }
 
         // Temperature tips
@@ -195,12 +195,12 @@ public class Main {
         // TODO: Construct your full weather report here
          
         String fullReport = "Today's Weather Report:\n" +
-                            "Conditions: " + WeatherConditions + "\n" +
-                            "Precipitation: " + Precipitation + "\n" +
-                            "Wind Speed: " + WindSpeed + "\n" +
-                            "High Temperature: " + HighTempInt + "°C\n" +
-                            "Low Temperature: " + LowTempInt + "°C\n" +
-                            "UV Index: " + UVIndex + "\n\n" +
+                            "Conditions: " + weatherConditions + "\n" +
+                            "Precipitation: " + precipitation + "\n" +
+                            "Wind Speed: " + windSpeed + "\n" +
+                            "High Temperature: " + highTempInt + "°C\n" +
+                            "Low Temperature: " + lowTempInt + "°C\n" +
+                            "UV Index: " + uvIndex + "\n\n" +
                             "Weather Tips:\n" + uvTips + "\n" + precipTips + "\n" +
                                 windTips + "\n" + tempTips + "\n";
  
