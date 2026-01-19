@@ -210,6 +210,8 @@ public class Main {
  
  
         // TODO: Output your report using System.out.println()
+
+        System.out.println(fullReport);
  
  
         /*
